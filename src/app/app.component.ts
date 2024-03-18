@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'ntt-to-do-list';
+  items: String[] = ['Estudar Angular'];
+  newItem: String = ''
+
+  addItem() {
+    if (this.newItem.trim() !== '') {
+      this.items.push(this.newItem);
+      this.newItem = '';
+    }
+  }
+
+  deleteItem(index: number) {
+    this.items.splice(index, 1);
+  }
 }
+
